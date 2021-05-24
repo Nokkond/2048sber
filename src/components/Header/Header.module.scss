@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  height: 120px;
+  position: relative;
+}
+
+.nameTitle {
+  font-weight: 700;
+  font-size: 60px;
+  color: #776e65;
+}
+
+.gameOver {
+  font-size: 30px;
+  font-weight: 900;
+  color: #776e65;
+}
+
+.newGame {
+  position: absolute;
+  width: 335px;
+  text-align: right;
+  bottom: 0;
+  cursor: pointer;
+}

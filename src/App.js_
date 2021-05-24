@@ -1,0 +1,247 @@
+import React, { useEffect } from "react";
+// import { useEvent } from "./service/utils";
+import "./App.css";
+import { useGameDataContext } from "./service/contexts";
+import { swipeDown, swipeLeft, swipeRight, swipeUp } from "./service/swipes";
+import { Container } from "./components/Container";
+import { SwipeField } from "./components/SwipeField";
+
+
+function App() {
+  // const UP_ARROW = 38;
+  // const DOWN_ARROW = 40;
+  // const LEFT_ARROW = 37;
+  // const RIGHT_ARROW = 39;
+  
+
+
+  const {
+    data,
+    setData,
+    gameOver,
+    checkGameOver,
+    addNumber,
+    initializeGame,
+  } = useGameDataContext();
+
+  const gameDataContext = { data, setData, addNumber };
+
+  ///////////////
+  // class MyComponent extends Component {
+  //   onSwipeStart(event) {
+  //     console.log('Start swiping...', event);
+  //   }
+
+  //   onSwipeMove(position, event) {
+  //     console.log(`Moved ${position.x} pixels horizontally`, event);
+  //     console.log(`Moved ${position.y} pixels vertically`, event);
+  //   }
+
+  //   onSwipeEnd(event) {
+  //     console.log('End swiping...', event);
+  //   }
+
+  //   render() {
+  //     const boxStyle = {
+  //       width: '100%',
+  //       height: '100%',
+  //       opacity: 0.1,
+  //       // border: '1px solid black',
+  //       // background: '#ccc',
+  //       // padding: '20px',
+  //       // fontSize: '3em'
+  //     };
+
+  //     return (
+  //       <SwipeField
+  //         onSwipeStart={this.onSwipeStart}
+  //         onSwipeMove={this.onSwipeMove}
+  //         onSwipeEnd={this.onSwipeEnd}>
+  //           {/* <div style={boxStyle}>Open the console and swipe me</div> */}
+  //       </SwipeField>
+  //     );
+  //   }
+  // }
+
+  //ReactDOM.render(<MyComponent/>, document.getElementById('root'));
+  ///////////////
+
+  // UseAddNumber - Add an item
+
+  /////////////
+  /////////////
+//   document.addEventListener("touchstart", handleTouchStart, false);
+//   //document.addEventListener('touchmove', handleTouchMove, false);
+//   document.addEventListener("touchend", handleTouchEnd, false);
+
+//   var xDown = null;
+//   var yDown = null;
+
+  // function getTouches(evt) {
+  //   return (
+  //     evt.touches || // browser API
+  //     evt.originalEvent.touches
+  //   ); // jQuery
+  // }
+
+  // function handleTouchStart(evt) {
+  //   const firstTouch = getTouches(evt)[0];
+  //   xDown = firstTouch.pageX;
+  //   yDown = firstTouch.pageY;
+  //   // console.log(evt.type);
+  //   // console.log(evt.touches);
+  // }
+  
+// function handleTouchEnd(evt) {
+
+//     if ( ! xDown || ! yDown ) {
+//         return;
+//     }
+//     console.log(evt.touches);
+//     const lastTouch = getTouches(evt)[0];
+//    var xUp = lastTouch.pageX;
+//     var yUp = lastTouch.pageY;
+
+//     var xDiff = xDown - xUp;
+//     var yDiff = yDown - yUp;
+//     //if(xDiff>4 || yDiff>4){
+//      // console.log(xDiff);
+//      // console.log(yDiff);
+//     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+//         if ( xDiff > 2 ) {
+
+//           //timer = 3000
+//           swipeLeft(false, gameDataContext);
+
+
+//         } else {
+//           //timer = 3000
+//           swipeRight(false, gameDataContext);
+//             // right swipe
+
+
+//         }
+//       }
+//       else{
+//         if ( yDiff > 2 ) {
+//           // up swipe
+//           swipeUp(false, gameDataContext);
+
+//       } else {
+//           // down swipe
+//           swipeDown(false, gameDataContext);
+//       }
+//       }
+       
+    
+    
+
+//     xDown = null;
+//     yDown = null;
+
+// };
+
+
+
+
+var startPoint={};
+var nowPoint;
+var ldelay;
+document.addEventListener('touchstart', function(event) {
+// event.preventDefault();
+// event.stopPropagation();
+startPoint.x=event.changedTouches[0].pageX;
+startPoint.y=event.changedTouches[0].pageY;
+ldelay=new Date(); 
+}, false);
+/*Ловим движение пальцем*/
+// // document.addEventListener('touchmove', function(event) {
+// // // event.preventDefault();
+// // // event.stopPropagation();
+// // var otk={};
+// // nowPoint=event.changedTouches[0];
+// // otk.x=nowPoint.pageX-startPoint.x;
+// // /*Обработайте данные*/
+// // /*Для примера*/
+// // if(Math.abs(otk.x)>200){
+// // if(otk.x<0){/*СВАЙП ВЛЕВО(ПРЕД.СТРАНИЦА)*/}
+// // if(otk.x>0){/*СВАЙП ВПРАВО(СЛЕД.СТРАНИЦА)*/}
+// // startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
+// // }
+// // }, false);
+// /*Ловим отпускание пальца*/
+document.addEventListener('touchend', function(event) {
+var pdelay=new Date(); 
+nowPoint=event.changedTouches[0];
+var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime()-ldelay.getTime())<20) {
+if (xAbs > yAbs) {
+if (nowPoint.pageX < startPoint.x){/*СВАЙП ВЛЕВО*/swipeLeft(false, gameDataContext);}
+else{/*СВАЙП ВПРАВО*/swipeRight(false, gameDataContext);}
+}
+else {
+if (nowPoint.pageY < startPoint.y){swipeUp(false, gameDataContext);/*СВАЙП ВВЕРХ*/}
+else{/*СВАЙП ВНИЗ*/swipeDown(false, gameDataContext);}
+}
+}
+}, false);
+
+  // function handleTouchEnd(evt) {
+  //   console.log("END");
+  //   console.log(evt.touches);
+  //   console.log(evt.touches);
+    
+  // }
+
+  // HANDLE KEY DOWN
+  // const handleKeyDown = (event) => {
+  //   if (gameOver) {
+  //     return;
+  //   }
+
+  //   switch (event.keyCode) {
+  //     case UP_ARROW:
+  //       // alert("up");
+  //       // console.table(data);
+  //       swipeUp(false, gameDataContext);
+  //       // console.table(data);
+  //       break;
+  //     case DOWN_ARROW:
+  //       // console.table(data);
+  //       swipeDown(false, gameDataContext);
+  //       // console.table(data);
+  //       break;
+  //     case LEFT_ARROW:
+  //       // console.table(data);
+  //       swipeLeft(false, gameDataContext);
+  //       // console.table(data);
+  //       break;
+  //     case RIGHT_ARROW:
+  //       // console.table(data);
+  //       swipeRight(false, gameDataContext);
+  //       // console.table(data);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+
+  //   checkGameOver();
+  // };
+
+  useEffect(() => {
+    initializeGame();
+    //document.addEventListener('keydown',handleKeyDown);
+    // eslint-disable-next-line
+  }, []);
+
+  // useEvent("keydown", handleKeyDown);
+
+  return (
+    <Container>
+      <SwipeField />
+    </Container>
+  );
+}
+
+export default App;
