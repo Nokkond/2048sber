@@ -52,8 +52,10 @@ export class App extends React.Component {
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
     this.assistant.on("data", (event/*: any*/) => {
       console.log(`assistant.on(data)`, event);
-      const { action } = event
-      this.dispatchAssistantAction(action);
+      const { navigation } = event;
+      console.log();
+      console.log('componentDidMount');
+      this.dispatchAssistantAction(navigation);
     });
     this.assistant.on("start", (event) => {
       console.log(`assistant.on(start)`, event);
@@ -82,21 +84,25 @@ export class App extends React.Component {
     return state;
   }
 
-  dispatchAssistantAction (action) {
-    console.log('dispatchAssistantAction', action);
-    if (action) {
-      switch (action.type) {
-        case 'add_note':  
-          return this.add_note(action);
+  dispatchAssistantAction (navigation) {
+    console.log('АУАУАУАУ');
+    //console.log(action.navigation.command);
+    console.log('dispatchAssistantAction', navigation);
+    if (navigation) {
+      switch (navigation.command) {
+         case 'add_note':  
+          return this.add_note(navigation);
 
-        case 'done_note':
-          return this.done_note(action);
+        // case 'done_note':
+        //   return this.done_note(action);
 
-        case 'delete_note':
-          return this.delete_note(action);
+        // case 'delete_note':
+        //   return this.delete_note(action);
 
-        case 'go_left':
+        case 'LEFT':
           return this.go_left();
+        
+          
 
         default:
           throw new Error();
@@ -111,8 +117,18 @@ export class App extends React.Component {
     console.log('add_note');
     console.log('add_note');
     console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
+    console.log('add_note');
     console.log('add_note', action);
-    swipeLeft(false, this.gameDataContext)
+    //swipeLeft(false, this.gameDataContext)
     this.setState({
       notes: [
         ...this.state.notes,
@@ -161,7 +177,7 @@ export class App extends React.Component {
 
     
     
-    swipeLeft(false, this.GameDataContext)
+    //swipeLeft(false, this.GameDataContext)
   }
 
   render() {
