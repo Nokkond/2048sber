@@ -8,11 +8,17 @@ import { Block } from "../Block";
 import Swipe from "react-easy-swipe";
 import React from "react";
 import { useGameDataContext } from "../../service/contexts";
+import eventBus from "../../lib/EventBus";
 
 export const SwipeField = () => {
   const { data, setData, addNumber } = useGameDataContext();
 
   const gameDataContext = { data, setData, addNumber };
+
+  eventBus.on("go_left", (data) =>
+    swipeLeft(false, gameDataContext)
+  );
+
   return (
     <Swipe
      onSwipeStart ={() => {console.log('Start swiping...')

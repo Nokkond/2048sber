@@ -8,7 +8,6 @@ import { swipeDown, swipeLeft, swipeRight, swipeUp } from "./service/swipes";
 import { Container } from "./components/Container";
 import { SwipeField } from "./components/SwipeField";
 
-
 import {
   createSmartappDebugger,
   createAssistant,
@@ -16,6 +15,7 @@ import {
 
 import "./App.css";
 import { TaskList } from './pages/TaskList';
+import eventBus from "./lib/EventBus";
 
 
 const initializeAssistant = (getState/*: any*/) => {
@@ -100,8 +100,8 @@ export class App extends React.Component {
         //   return this.delete_note(action);
 
         case 'LEFT':
-          return this.go_left();
-        
+          //return this.go_left();
+          return eventBus.dispatch("go_left", {});
           
 
         default:
@@ -112,23 +112,10 @@ export class App extends React.Component {
   }
 
   add_note (action) {
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
-    console.log('add_note');
     console.log('add_note', action);
-    //swipeLeft(false, this.gameDataContext)
+
+    swipeLeft(false, this.gameDataContext)
+    
     this.setState({
       notes: [
         ...this.state.notes,
@@ -159,26 +146,12 @@ export class App extends React.Component {
     })
   }
 
-  go_left() {
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-    console.log('Привет');
-
-    
-    
-    //swipeLeft(false, this.GameDataContext)
-  }
+  //go_left() {
+  //  console.log('go_left');
+  //  const { data, setData, addNumber } = useGameDataContext();
+  //  const gameDataContext = { data, setData, addNumber };
+  //  swipeLeft(false, this.GameDataContext)
+  //}
 
   render() {
     console.log('render');
