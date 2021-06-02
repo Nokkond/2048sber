@@ -19,6 +19,16 @@ export const SwipeField = () => {
     swipeLeft(false, gameDataContext)
   );
 
+  eventBus.on("go_right", (data) =>
+    swipeRight(false, gameDataContext)
+  );
+  eventBus.on("go_up", (data) =>
+    swipeUp(false, gameDataContext)
+  );
+  eventBus.on("go_down", (data) =>
+    swipeDown(false, gameDataContext)
+  );
+
   return (
     <Swipe
      onSwipeStart ={() => {console.log('Start swiping...')
