@@ -102,6 +102,15 @@ export class App extends React.Component {
         case 'LEFT':
           //return this.go_left();
           return eventBus.dispatch("go_left", {});
+        case 'RIGHT':
+          //return this.go_left();
+          return eventBus.dispatch("go_right", {}); 
+        case 'UP':
+          //return this.go_left();
+          return eventBus.dispatch("go_up", {}); 
+        case 'DOWN':
+          //return this.go_left();
+          return eventBus.dispatch("go_down", {});
           
 
         default:
