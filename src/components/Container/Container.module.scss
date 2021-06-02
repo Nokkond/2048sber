@@ -1,0 +1,16 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gameField {
+  background: #ad9d8f;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 10px;
+}
