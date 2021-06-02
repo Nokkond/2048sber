@@ -5,13 +5,14 @@ import cloneDeep from "lodash.clonedeep";
 export const GameDataContext = React.createContext({});
 
 export const GameDataProvider = ({ children }) => {
+  
   const [data, setData] = useState([
     [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
+    [0, 2, 0, 0],
+    [0, 0, 4, 0],
     [0, 0, 0, 0],
   ]);
-
+  
   const initializeGame = () => {
     // console.log("CALLING INITIALIZE");
 
