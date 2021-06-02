@@ -63,7 +63,7 @@ export const Header = () =>  {
       <div className={styles.header}>
        <span className={styles.nameTitle}>2048</span> 
       
-      <div>
+      {/* <div>
         <input
           id="todo-input"
           type="text"
@@ -85,7 +85,7 @@ export const Header = () =>  {
             {task} <span onClick={e => deleteTodo(e, _id)}>X</span>
           </li>
         ))}
-      </ul>
+      </ul> */}
       {gameOver && <span className={styles.gameOver}>Game Over</span>}
       <span className={styles.newGame} onClick={resetGame}>
          {gameOver ? "Try Again" : "New Game"}
