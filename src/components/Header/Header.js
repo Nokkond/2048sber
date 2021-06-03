@@ -62,6 +62,7 @@ export const Header = () =>  {
     
       <div className={styles.header}>
        <span className={styles.nameTitle}>2048</span> 
+       <span className={styles.nameTitle1}>classic</span> 
       
       {/* <div>
         <input
@@ -86,9 +87,9 @@ export const Header = () =>  {
           </li>
         ))}
       </ul> */}
-      {gameOver && <span className={styles.gameOver}>Game Over</span>}
+      {gameOver && <span className={styles.gameOver}>Конец игры</span>}
       <span className={styles.newGame} onClick={resetGame}>
-         {gameOver ? "Try Again" : "New Game"}
+         {gameOver ? "Сыграть еще" : "Новая игра"}
       </span> 
       
       

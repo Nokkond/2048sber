@@ -1,3 +1,11 @@
+
+
+.footer {
+  width: 335px;
+  text-align: center;
+  color: rgb(168, 164, 164);
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -13,6 +21,12 @@
   color: #776e65;
 }
 
+.nameTitle1 {
+  font-weight: 350;
+  font-size: 30px;
+  color: #776e65;
+}
+
 .gameOver {
   font-size: 30px;
   font-weight: 900;
@@ -25,4 +39,7 @@
   text-align: right;
   bottom: 0;
   cursor: pointer;
+  color: rgb(236, 234, 234);
 }
+
+

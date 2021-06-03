@@ -10,9 +10,8 @@ export const Footer = () => {
       
       
     <p className={styles.footer}>
-      <strong>How to play:</strong> Use your <strong>arrow keys</strong> to move
-      the tiles. When two tiles with the same number touch, they{" "}
-      <strong>merge into one!</strong>
+      <strong>Как играть:</strong> Используйте голосовые команды <strong>вверх, вниз, влево, вправо</strong> чтобы двигать блоки. Когда два блока с одинаковым значением соприкасаются, они{" "}
+      <strong>объединяются в один!</strong>
     </p>
     </div>
   );
