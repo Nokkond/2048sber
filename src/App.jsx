@@ -19,13 +19,13 @@ import eventBus from "./lib/EventBus";
 
 
 const initializeAssistant = (getState/*: any*/) => {
-  // if (process.env.NODE_ENV === "development") {
-  //   return createSmartappDebugger({
-  //     token: process.env.REACT_APP_TOKEN ?? "",
-  //     initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP}`,
-  //     getState,
-  //   });
-  // }
+  if (process.env.NODE_ENV === "development") {
+    return createSmartappDebugger({
+      token: process.env.REACT_APP_TOKEN ?? "",
+      initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP}`,
+      getState,
+    });
+  }
   return createAssistant({ getState });
 };
 
@@ -85,7 +85,7 @@ export class App extends React.Component {
   }
 
   dispatchAssistantAction (navigation) {
-    console.log('АУАУАУАУ');
+    alert('АУАУАУАУ');
     //console.log(action.navigation.command);
     console.log('dispatchAssistantAction', navigation);
     if (navigation) {
