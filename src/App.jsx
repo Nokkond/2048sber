@@ -52,10 +52,10 @@ export class App extends React.Component {
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
     this.assistant.on("data", (event/*: any*/) => {
       console.log(`assistant.on(data)`, event);
-      const { navigation } = event;
+      const { action } = event;
       console.log();
       console.log('componentDidMount');
-      this.dispatchAssistantAction(navigation);
+      this.dispatchAssistantAction(action);
     });
     this.assistant.on("start", (event) => {
       console.log(`assistant.on(start)`, event);
@@ -84,14 +84,15 @@ export class App extends React.Component {
     return state;
   }
 
-  dispatchAssistantAction (navigation) {
+  dispatchAssistantAction (action) {
     alert('АУАУАУАУ');
     //console.log(action.navigation.command);
-    console.log('dispatchAssistantAction', navigation);
-    if (navigation) {
-      switch (navigation.command) {
-         case 'add_note':  
-          return this.add_note(navigation);
+    console.log('dispatchAssistantAction', action);
+    if (action) {
+      switch (action.type) {
+        //  case 'add_note':  
+        //  return this.
+        
 
         // case 'done_note':
         //   return this.done_note(action);
@@ -99,16 +100,16 @@ export class App extends React.Component {
         // case 'delete_note':
         //   return this.delete_note(action);
 
-        case 'LEFT':
+        case 'go_left':
           //return this.go_left();
           return eventBus.dispatch("go_left", {});
-        case 'RIGHT':
+        case 'go_right':
           //return this.go_left();
           return eventBus.dispatch("go_right", {}); 
-        case 'UP':
+        case 'go_up':
           //return this.go_left();
           return eventBus.dispatch("go_up", {}); 
-        case 'DOWN':
+        case 'go_down':
           //return this.go_left();
           return eventBus.dispatch("go_down", {});
           
