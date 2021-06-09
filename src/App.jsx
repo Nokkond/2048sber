@@ -85,7 +85,7 @@ export class App extends React.Component {
   }
 
   dispatchAssistantAction (action) {
-    alert('АУАУАУАУ');
+    
     //console.log(action.navigation.command);
     console.log('dispatchAssistantAction', action);
     if (action) {

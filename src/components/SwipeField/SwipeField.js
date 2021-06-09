@@ -35,10 +35,10 @@ export const SwipeField = () => {
     }}
       
       
-      onSwipeDown={() =>  swipeDown(false, gameDataContext)}
-      onSwipeLeft={() => swipeLeft(false, gameDataContext)}
-      onSwipeRight={() => swipeRight(false, gameDataContext)}
-      onSwipeUp={() => swipeUp(false, gameDataContext)}
+      // onSwipeDown={() =>  swipeDown(false, gameDataContext)}
+      // onSwipeLeft={() => swipeLeft(false, gameDataContext)}
+      // onSwipeRight={() => swipeRight(false, gameDataContext)}
+      // onSwipeUp={() => swipeUp(false, gameDataContext)}
       
       style={{ overflowY: "hidden" }}
     >
