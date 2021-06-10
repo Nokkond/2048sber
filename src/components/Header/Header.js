@@ -87,10 +87,10 @@ export const Header = () =>  {
           </li>
         ))}
       </ul> */}
-      {gameOver && <span className={styles.gameOver}>Конец игры</span>}
+      {/* {gameOver && <span className={styles.gameOver}>Конец игры</span>}
       <span className={styles.newGame} onClick={resetGame}>
          {gameOver ? "Сыграть еще" : "Новая игра"}
-      </span> 
+      </span>  */}
       
       
       </div>

@@ -28,6 +28,7 @@ export const SwipeField = () => {
   eventBus.on("go_down", (data) =>
     swipeDown(false, gameDataContext)
   );
+ 
 
   return (
     <Swipe

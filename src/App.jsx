@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { useGameDataContext } from "./service/contexts";
 
+
 import { swipeDown, swipeLeft, swipeRight, swipeUp } from "./service/swipes";
 import { Container } from "./components/Container";
 import { SwipeField } from "./components/SwipeField";
@@ -112,6 +113,9 @@ export class App extends React.Component {
         case 'go_down':
           //return this.go_left();
           return eventBus.dispatch("go_down", {});
+        case 'new_game':
+            //return this.go_left();
+          return this.resetGame(); 
           
 
         default:
